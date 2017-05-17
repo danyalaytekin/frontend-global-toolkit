@@ -1,0 +1,37 @@
+{
+  "name": "frontend-components",
+  "version": "1.0.0",
+  "description": "monorepo for shared frontend components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/springernature/frontend-components.git"
+  },
+  "keywords": [
+    "frontend",
+    "fed",
+    "components",
+    "css",
+    "javascript"
+  ],
+  "author": "Jon Whitlock",
+  "bugs": {
+    "url": "https://github.com/springernature/frontend-components/issues"
+  },
+  "homepage": "https://github.com/springernature/frontend-components#readme",
+  "devDependencies": {
+    "lerna": "^2.0.0-rc.4",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "rules": {
+    },
+    "env": [
+        "browser",
+        "node"
+    ]
+  }
+}

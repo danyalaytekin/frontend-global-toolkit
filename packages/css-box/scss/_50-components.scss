@@ -1,0 +1,21 @@
+/**
+ * frontend-components
+ * Standard box
+ * A container with 4 sides
+ *
+ */
+
+.c-box {
+    @include frontend-components-box;
+}
+
+/**
+ * frontend-components
+ * Circular box
+ * A container with no corners
+ *
+ */
+
+.c-box-circle {
+    @include frontend-components-box-circle;
+}

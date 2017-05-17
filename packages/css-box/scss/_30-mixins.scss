@@ -1,0 +1,35 @@
+/**
+ * frontend-components
+ * Standard box
+ *
+ */
+@mixin frontend-components-box(
+    $padding: $frontend-components-css-box-padding,
+    $border: $frontend-components-css-box-border-color,
+    $background: $frontend-components-css-box-background-color
+) {
+    border: 1px solid #{$border};
+    padding: #{$padding};
+    position: #{$background};
+}
+
+/**
+ * frontend-components
+ * Circular box
+ *
+ */
+@mixin frontend-components-box-circle(
+    $diameter: $frontend-components-css-box-circle-diameter
+) {
+    @include frontend-components-box(
+        0,
+        $frontend-components-css-box-border-color,
+        $frontend-components-css-box-background-color
+    );
+    border-radius: 50%;
+    display: block;
+    height: #{$diameter};
+    width: #{$diameter};
+    line-height: calc(#{$diameter} - 2px);
+    text-align: center;
+}
