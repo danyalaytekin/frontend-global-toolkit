@@ -49,4 +49,5 @@ after_success:
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
   - 'if [ $PUBLISH_PACKAGE ]; then node_modules/.bin/lerna bootstrap; fi'
   - 'if [ $PUBLISH_PACKAGE ]; then npm config set registry https://npm.fury.io/$GEMFURY_HASH/nature/; fi'
-  - 'if [ $PUBLISH_PACKAGE ]; then lerna publish --skip-git --skip-npm --yes; fi'
+  - 'if [ $PUBLISH_PACKAGE ]; then lerna publish --skip-git --skip-npm --canary --yes; fi'
+  - 'if [ $PUBLISH_PACKAGE ]; then cd packages/snc-box && npm publish; fi'
