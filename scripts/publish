@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+node_modules/.bin/lerna bootstrap
+lerna publish --skip-git --skip-npm --canary --yes
+cd packages/snc-box
+PKG_NAME=`node -p "require('./package.json').name"`
+PKG_VERSION=`node -p "require('./package.json').version"`
+npm pack
+curl -F "package=@$NAME-$VERSION.tgz" https://push.fury.io/$GEMFURY_HASH/nature/
