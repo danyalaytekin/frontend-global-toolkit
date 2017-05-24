@@ -1,5 +1,5 @@
 {
-  "name": "@components",
+  "name": "frontend-components",
   "version": "0.0.1",
   "description": "monorepo for shared frontend components - css, javascript, templates, images",
   "private": true,
@@ -15,6 +15,10 @@
     "javascript"
   ],
   "author": "Jon Whitlock",
+  "scripts": {
+    "lint:js": "xo packages/**/*.js",
+    "lint": "npm run lint:js"
+  },
   "bugs": {
     "url": "https://github.com/springernature/frontend-components/issues"
   },
