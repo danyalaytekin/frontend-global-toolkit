@@ -45,6 +45,6 @@ script:
 
 # Auto-publish to Gemfury
 after_success:
-  - 'if [[ $TRAVIS_BRANCH == 'master' ]]; then PUBLISH_PACKAGE=true; fi'
+  - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'echo grep -Po '(?<="version":\s")[^"]*' package.json'
+  - 'echo grep -Po "(?<="version":\s")[^"]*" package.json'
