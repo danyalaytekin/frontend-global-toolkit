@@ -2,7 +2,7 @@
 
 node_modules/.bin/lerna bootstrap
 cd packages/snc-box
-PKG_NAME=`node -p "require('./package.json').name"`
-PKG_VERSION=`node -p "require('./package.json').version"`
-npm pack
-curl -F "package=@$PKG_NAME-$PKG_VERSION.tgz" https://push.fury.io/$GEMFURY_HASH/nature/
+#PKG_NAME=`node -p "require('./package.json').name"`
+#PKG_VERSION=`node -p "require('./package.json').version"`
+FILE_NAME=`npm pack`
+curl -F "package=@$FILE_NAME" https://push.fury.io/$GEMFURY_HASH/nature/
