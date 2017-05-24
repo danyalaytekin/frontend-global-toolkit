@@ -19,6 +19,11 @@ matrix:
     - node_js: '6'
       addons: *gcc48
 
+# cache the node modules
+cache:
+  directories:
+    - node_modules
+
 # Restrict builds on branches
 branches:
   only:
@@ -47,5 +52,5 @@ script:
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'if [ $PUBLISH_PACKAGE ]; then scripts/publish; fi'
+  - 'if [ $PUBLISH_PACKAGE ]; then scripts/publish $GEMFURY_HASH; fi'
 
