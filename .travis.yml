@@ -41,7 +41,7 @@ before_install:
 
 # Build script
 script:
-  - 'npm run lint; fi'
+  - 'npm run lint'
 
 # Auto-publish to Gemfury
 after_success:
