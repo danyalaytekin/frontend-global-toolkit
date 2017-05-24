@@ -49,4 +49,4 @@ after_success:
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
   - 'if [ $PUBLISH_PACKAGE ]; then lerna bootstrap'
   - 'if [ $PUBLISH_PACKAGE ]; then npm config set registry https://npm.fury.io/nature/;'
-  - 'if [ $PUBLISH_PACKAGE ]; then lerna publish --skip-git --skip-npm --yes; fi'
+  #- 'if [ $PUBLISH_PACKAGE ]; then lerna publish --skip-git --skip-npm --yes; fi'
