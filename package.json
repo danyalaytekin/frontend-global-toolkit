@@ -11,7 +11,8 @@
     "fed",
     "components",
     "css",
-    "javascript"
+    "javascript",
+    "templates"
   ],
   "author": "Jon Whitlock",
   "scripts": {
