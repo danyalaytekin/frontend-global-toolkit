@@ -3,7 +3,5 @@
 node_modules/.bin/lerna bootstrap
 cd packages/snc-box
 FILE_NAME=`npm pack`
-echo https://push.fury.io/$0/nature/
-echo https://push.fury.io/$1/nature/
-echo https://push.fury.io/$2/nature/
+echo `fury list`
 curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/

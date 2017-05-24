@@ -34,11 +34,6 @@ notifications:
   email:
     - feds@springernature.com
 
-# Global environment variables
-env:
-  global:
-    - secure: g2HDfPRWaqy7GcpcAuaEV49AzOvV1HjWq3+Dyi382h1wdoRZZ0V/K5GXXyAUmTcX2ZrNO8nARm3IWd767BIoE9/eNgKam5XNvQUpSEyWCbXBcU65fGjSAeohsgEuzYT5C9vJdoVtYfKUCUNjnxIq0N4SN3xcjDPHdlV5O5Ihx8wib9KixgWJvXqReyCwIORkW3FtaW/lwEwrl7zn4xRO6betbB7L2wUtLU2gKvwYOdyuzr7VZMM2sreBGeQUr+ipLc6i8VhRYy68jo2vjGALoRMsTc3DfvgUksQ/i8WtHHEe4oVhl/pMeQWVKsbpY1dI3QkPZJxTOUKMI6fiK+y7clkRvQSxbaVlJwCuUL/ApuqeYxLksjVdqnDyMk+Ae3THwKb2LpfQi9piU1nINne3HJgDAO7zRDkRXQtBVxqr2hL3Hh48iVrr+n1JmcvoblCGKgfpEIXQ2taeUnziVkMczuou2a1M9LGcyqVfwaWcYLYI1HNtarqlMHXQOo7IAnfr8RZKtdW9XjTM0VG3Di5ILSLc8BLPxENC6f0JafTRVfXDDdG8s91KdoMArtufiRYwjQ5baOJyAGdBqQGG8nW93k5ESV4wAIImmAf+hyrOv0VnWJzP0UF8WTlIwIenJNMvZ6alG+y+MpzZLtxFqEXM8CABBXK34quIcOuXmTGoKxY=
-
 # Before install
 before_install:
   # Use GCC 4.8 if it's available
@@ -52,6 +47,5 @@ script:
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'echo $GEMFURY'
-  - 'if [ $PUBLISH_PACKAGE ]; then bin/publish $GEMFURY; fi'
+  - 'if [ $PUBLISH_PACKAGE ]; then bin/publish $GEMFURY_HASH; fi'
 
