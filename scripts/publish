@@ -5,4 +5,5 @@ cd packages/snc-box
 #PKG_NAME=`node -p "require('./package.json').name"`
 #PKG_VERSION=`node -p "require('./package.json').version"`
 FILE_NAME=`npm pack`
+echo '~$1~'
 curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/
