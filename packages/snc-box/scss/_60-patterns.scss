@@ -1,0 +1,21 @@
+/**
+ * @components
+ * Standard box
+ * A container with 4 sides
+ *
+ */
+
+.p-box {
+    @include snc-box;
+}
+
+/**
+ * @components
+ * Circular box
+ * A container with no corners
+ *
+ */
+
+.p-box-circle {
+    @include snc-box-circle;
+}
