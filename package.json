@@ -1,6 +1,5 @@
 {
   "name": "frontend-components",
-  "version": "0.0.1",
   "description": "monorepo for shared frontend components - css, javascript, templates, images",
   "private": true,
   "repository": {
