@@ -46,7 +46,7 @@ before_install:
 # install dependencies
 install:
   - 'bundle install'
-  # - 'bundle exec gemfury ./bin/fury.rb'
+  - 'bundle exec ./bin/fury.rb'
 
 # Build script
 script:
@@ -56,6 +56,6 @@ script:
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'bundle show gemfury'
+  - 'echo `bundle show gemfury`'
   - 'if [ $PUBLISH_PACKAGE ]; then bin/publish.sh $GEMFURY_HASH; fi'
 
