@@ -2,6 +2,9 @@
 # Build matrix
 language: node_js
 
+gemfile:
+  - Gemfile
+
 # Save common build configurations as shortcuts, so we can reference them later
 addons_shortcuts:
   addons_gcc48: &gcc48
@@ -30,6 +33,7 @@ branches:
     - master
     - /^\d+\.\d+\.\d+$/
 
+# build notification
 notifications:
   email:
     - feds@springernature.com
@@ -41,15 +45,17 @@ before_install:
 
 # install dependencies
 install:
-  - 'gem install gemfury'
+  - 'bundle install'
 
 # Build script
 script:
   - 'npm run lint'
+  - 'TESTING=alex'
 
 # Auto-publish to Gemfury
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
+  - 'echo $TESTING'
   - 'if [ $PUBLISH_PACKAGE ]; then bin/publish.sh $GEMFURY_HASH; fi'
 
