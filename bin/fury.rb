@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require 'gemfury'
+require 'vendor/bundle/gemfury'
 require 'json'
 
 # retrieve @component packages from gemfury
