@@ -46,16 +46,16 @@ before_install:
 # install dependencies
 install:
   - 'bundle install'
+  # - 'bundle exec gemfury ./bin/fury.rb'
 
 # Build script
 script:
   - 'npm run lint'
-  - 'TESTING=alex'
 
 # Auto-publish to Gemfury
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'echo $TESTING'
+  - 'bundle show gemfury'
   - 'if [ $PUBLISH_PACKAGE ]; then bin/publish.sh $GEMFURY_HASH; fi'
 
