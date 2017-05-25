@@ -25,14 +25,14 @@
   "homepage": "https://github.com/springernature/frontend-components#readme",
   "devDependencies": {
     "lerna": "^2.0.0-rc.4",
+    "semver": "^5.3.0",
     "xo": "^0.18.2"
   },
   "xo": {
-    "rules": {
-    },
+    "rules": {},
     "env": [
-        "browser",
-        "node"
+      "browser",
+      "node"
     ]
   }
 }

@@ -42,10 +42,11 @@ before_install:
 # Build script
 script:
   - 'npm run lint'
+  - 'gem install gemfury'
 
 # Auto-publish to Gemfury
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'if [ $PUBLISH_PACKAGE ]; then bin/publish $GEMFURY_HASH; fi'
+  - 'if [ $PUBLISH_PACKAGE ]; then bin/publish.sh $GEMFURY_HASH; fi'
 
