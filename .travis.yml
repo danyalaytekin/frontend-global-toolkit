@@ -47,9 +47,6 @@ before_install:
 install:
   - 'bundle install'
 
-before_script:
-  - 'FURIOUS=bin/fury.rb $GEMFURY_HASH'
-
 # Build script
 script:
   - 'npm run lint'
@@ -58,6 +55,5 @@ script:
 after_success:
   - 'if [[ $TRAVIS_BRANCH == "master" ]]; then PUBLISH_PACKAGE=true; fi'
   - 'echo "Branch: $TRAVIS_BRANCH" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'
-  - 'echo $FURIOUS'
   - 'if [ $PUBLISH_PACKAGE ]; then bin/publish.sh $GEMFURY_HASH; fi'
 

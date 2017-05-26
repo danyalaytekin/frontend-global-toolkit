@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # get list of all component packages from Gemfury
-PACKAGES=`./bin/fury.rb $1`
+PACKAGES=`bundle exec ruby ./bin/fury.rb $1`
 
 # bootstrap all our packages
 node_modules/.bin/lerna bootstrap
