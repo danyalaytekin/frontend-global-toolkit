@@ -11,8 +11,10 @@ for COMPONENT in packages/*; do
     UPDATE=`./bin/check_package.js ${PACKAGES} ${COMPONENT}`
     echo "Update package? ${UPDATE}"
     if [ "${UPDATE}" = "true" ] ; then
-        echo 'publishing...'
+        cd ${COMPONENT}
         FILE_NAME=`npm pack`
-        curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/ --scope=@springernature
+        echo "creating: ${FILE_NAME}"
+        echo 'publishing...'
+        curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/
     fi
 done
