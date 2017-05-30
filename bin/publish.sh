@@ -13,6 +13,6 @@ for COMPONENT in packages/*; do
     if [ "${UPDATE}" = "true" ] ; then
         echo 'publishing...'
         FILE_NAME=`npm pack`
-        curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/
+        curl -F "package=@$FILE_NAME" https://push.fury.io/$1/nature/ --scope=@springernature
     fi
 done
