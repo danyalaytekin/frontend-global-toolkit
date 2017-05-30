@@ -1,0 +1,15 @@
+/**
+ * @springernature/fec-box
+ * A container with 4 sides
+ *
+ */
+
+.p-box {
+    @include fec-box;
+
+    // Circular box
+    // A container with no corners
+    &--circle {
+        @include fec-box--circle;
+    }
+}

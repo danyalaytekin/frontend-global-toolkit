@@ -9,7 +9,7 @@ node_modules/.bin/lerna bootstrap
 # update package if version incremented
 for COMPONENT in packages/*; do
     UPDATE=`./bin/check_package.js ${PACKAGES} ${COMPONENT}`
-    echo "Update package?       ${UPDATE}"
+    echo "Update package? ${UPDATE}"
     if [ "${UPDATE}" = "true" ] ; then
         echo 'publishing...'
         FILE_NAME=`npm pack`

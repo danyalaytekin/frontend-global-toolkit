@@ -1,0 +1,30 @@
+/**
+ * @springernature/fec-box
+ * Standard box
+ *
+ */
+@mixin fec-box (
+    $padding: $fec-box--padding,
+    $border: $fec-box--border-color,
+    $background: $fec-box--background-color
+) {
+    border: 1px solid #{$border};
+    padding: #{$padding};
+    background-color: #{$background};
+}
+
+/**
+ * @springernature/fec-box
+ * Circular box
+ *
+ */
+@mixin fec-box--circle (
+    $diameter: $fec-box--circle-diameter
+) {
+    padding: 0;
+    border-radius: 50%;
+    height: #{$diameter};
+    width: #{$diameter};
+    line-height: calc(#{$diameter} - 2px);
+    text-align: center;
+}

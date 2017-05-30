@@ -6,39 +6,39 @@ Each component should have it's own folder in `./packages`.
 
 ## Naming
 
-Components should use the `snc` prefix for naming (Springer Nature Components). The component folder inside packages should use the convention `snc-name-of-component`, where `name-of-component` uses only lowercase alphanumeric characters and hyphens.
+Components should use the `fec` prefix for naming (Front End Components). The component folder inside packages should use the convention `fec-name-of-component`, where `name-of-component` uses only lowercase alphanumeric characters and hyphens.
 
 ### `package.json`
 
-Components are exported using the naming convention `@components/name-of-component`, where `name-of-component` uses only lowercase alphanumeric characters and hyphens.
+Packages in `frontend-components` are [scoped](https://docs.npmjs.com/misc/scope) to the `springernature` organisation. Components are exported using the naming convention `@springernature/fec-name-of-component`, where `name-of-component` uses only lowercase alphanumeric characters and hyphens.
 
 ```json
 {
-  "name": "@components/name-of-component",
+  "name": "@springernature/fec-name-of-component",
 }
 ```
 
 ### SASS
 
-Any SASS mixins/functions/variables should be prefixed with `snc-name-of-component`. All naming should use only lowercase alphanumeric characters and hyphens.
+Any SASS mixins/functions/variables should be prefixed with `fec-name-of-component`. All naming should use only lowercase alphanumeric characters and hyphens.
 
 ```scss
 // variables
-$snc-name-of-component--variable-name
+$fec-name-of-component--variable-name
 
 // mixins
-@mixin snc-name-of-component () {}
-@mixin snc-name-of-component--other-name () {}
+@mixin fec-name-of-component () {}
+@mixin fec-name-of-component--other-name () {}
 
 // functions
-@function snc-name-of-component () {}
-@function snc-name-of-component--other-name () {}
+@function fec-name-of-component () {}
+@function fec-name-of-component--other-name () {}
 ```
 
 ### Javascript
 
-Javscript components are imported using camelcase naming with the `SNC` prefix.
+Javscript components are imported using camelcase naming with the `FEC` prefix.
 
 ```javascript
-import SNCModuleName from '@material/name-of-component'
+import FECModuleName from '@springernature/fec-name-of-component'
 ```

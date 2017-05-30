@@ -13,7 +13,7 @@ data = JSON.parse packages
 results = {}
 
 data.each do |hash|
-  if hash["name"] =~ /^\@components/
+  if hash["name"] =~ /^\@springernature\/fec-/
     results[hash["name"]] = hash["latest_version"]["version"]
   end
 end
