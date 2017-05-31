@@ -2,7 +2,6 @@
   "name": "@springernature/fec-box",
   "version": "0.0.1",
   "description": "css box pattern",
-  "main": "index.js",
   "keywords": [
     "css",
     "pattern"
