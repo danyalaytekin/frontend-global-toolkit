@@ -1,0 +1,14 @@
+{
+  "name": "@springernature/fec-grid",
+  "version": "0.0.1",
+  "description": "css layout pattern",
+  "keywords": [
+    "css",
+    "pattern",
+    "layout"
+  ],
+  "author": "Charlie Owen",
+  "dependencies": {
+    "bourbon-neat": "2.0.x"
+  }
+}
