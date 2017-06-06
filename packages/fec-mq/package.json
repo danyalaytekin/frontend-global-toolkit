@@ -1,0 +1,15 @@
+{
+  "name": "@springernature/fec-mq",
+  "version": "0.0.1",
+  "description": "css media-query pattern",
+  "keywords": [
+    "css",
+    "media-queries",
+    "media-query",
+    "layout"
+  ],
+  "author": "Charlie Owen",
+  "dependencies": {
+    "breakpoint-sass": "2.7.x"
+  }
+}
