@@ -1,4 +1,5 @@
 # frontend-components
+[![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master)](https://travis-ci.com/springernature/frontend-components)
 
 Core front-end components for use on all Springer Nature products. Components can contain one or more of `css`, `javascript`, `templates`, `images`.
 
