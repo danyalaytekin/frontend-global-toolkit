@@ -1,0 +1,38 @@
+{
+  "scope": "springernature",
+  "prefix": "fec",
+  "required": [
+    "README.md",
+    "HISTORY.md",
+    "package.json"
+  ],
+  "ignored": [
+    ".DS_Store",
+    "node_modules"
+  ],
+  "folders": {
+    "scss": [
+      "scss",
+      "css",
+      "md"
+    ],
+    "js": [
+      "js",
+      "json",
+      "md"
+    ],
+    "view": [
+      "html",
+      "dust",
+      "md",
+      "txt"
+    ],
+    "img": [
+      "jpg",
+      "gif",
+      "png",
+      "svg",
+      "md"
+    ]
+  }
+}
