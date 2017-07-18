@@ -1,5 +1,5 @@
 /**
- * __mocks__/_showOutput.js
+ * __mocks__/_show-output.js
  * Mock output to stop logging in tests
  */
 'use strict';

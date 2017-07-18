@@ -1,5 +1,5 @@
 /**
- * _showOutput.js
+ * _show-output.js
  * Log the colorized output
  */
 'use strict';
@@ -12,7 +12,7 @@ function getOuputConfig(desc) {
 		description: chalk.magenta(desc),
 		info: chalk.green('info'),
 		success: chalk.green.bold('success'),
-		fail: chalk.red('fail')
+		fail: chalk.red.bold('fail')
 	};
 }
 

@@ -1,4 +1,5 @@
 /**
+ * _bootstrap.js
  * Boostrap packages using lerna
  */
 'use strict';
@@ -9,8 +10,8 @@ function bootstrap() {
 	return new Promise((resolve, reject) => {
 		const lerna = spawn('node_modules/.bin/lerna', ['bootstrap'], {stdio: 'inherit'});
 
-		lerna.on('error', error => {
-			reject(new Error(error));
+		lerna.on('error', err => {
+			reject(new Error(err));
 		});
 
 		lerna.on('exit', code => {

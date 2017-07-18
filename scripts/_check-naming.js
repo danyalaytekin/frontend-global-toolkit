@@ -1,12 +1,12 @@
 /**
- * _checkNaming.js
+ * _check-naming.js
  * Check naming conventions
  */
 'use strict';
 
 const chalk = require('chalk');
-const getPackageName = require('./_getPackageName');
-const showOutput = require('./_showOutput');
+const getPackageName = require('./_get-package-name');
+const showOutput = require('./_show-output');
 
 // Check a string against a RegExp
 function checkName(name, re) {

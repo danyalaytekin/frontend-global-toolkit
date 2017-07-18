@@ -1,5 +1,5 @@
 /**
- * _getPackages.js
+ * _get-packages.js
  * Get a list of all packages in `frontend-components`
  */
 'use strict';

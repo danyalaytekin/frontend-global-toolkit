@@ -34,14 +34,14 @@ const __fsMockFiles = () => {
 			'some-file.txt': 'file content here',
 			'empty-dir': {/** empty directory */}
 		},
-		'path/to/some.png': new Buffer([8, 6, 7, 5, 3, 0, 9]),
+		'path/to/some.png': Buffer.from([8, 6, 7, 5, 3, 0, 9]),
 		'some/other/path': {/** another empty directory */}
 	};
 };
 
 const __fsMockFilesEmpty = () => {
 	return {
-		'path/to/some.png': new Buffer([8, 6, 7, 5, 3, 0, 9]),
+		'path/to/some.png': Buffer.from([8, 6, 7, 5, 3, 0, 9]),
 		'some/other/path': {/** another empty directory */}
 	};
 };

@@ -1,5 +1,5 @@
 /**
- * __mocks__/_npmRegistryRequest.js
+ * __mocks__/_npm-registry-request.js
  * Mock the NPM registry
  */
 'use strict';

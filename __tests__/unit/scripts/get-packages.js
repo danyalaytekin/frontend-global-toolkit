@@ -1,12 +1,12 @@
 /**
- * __tests__/unit/scripts/getPackages.js
- * Test: scripts/_getPackages.js
+ * __tests__/unit/scripts/get-packages.js
+ * Test: scripts/_get-packages.js
  */
 'use strict';
 
 const path = require('path');
 const mockfs = require('__mocks__/fs');
-const getPackages = require('scripts/_getPackages');
+const getPackages = require('scripts/_get-packages');
 
 const MOCK_PACKAGES = mockfs.__fsMockFiles();
 const MOCK_PACKAGES_EMPTY = mockfs.__fsMockFilesEmpty();

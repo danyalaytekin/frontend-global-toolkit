@@ -1,5 +1,5 @@
 /**
- * _checkValidation.js
+ * _check-validation.js
  * Get a list of all folders/files within a package folder
  * Check folders and files validate
  */
@@ -10,8 +10,8 @@ const path = require('path');
 const glob = require('glob');
 const chalk = require('chalk');
 const config = require('../validation.json');
-const getPackageName = require('./_getPackageName');
-const showOutput = require('./_showOutput');
+const getPackageName = require('./_get-package-name');
+const showOutput = require('./_show-output');
 
 const validFolders = Object.keys(config.folders);
 const blankResults = {

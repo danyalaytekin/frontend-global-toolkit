@@ -1,6 +1,7 @@
 {
   "name": "@springernature/fec-grid",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "css layout pattern",
   "keywords": [
     "css",

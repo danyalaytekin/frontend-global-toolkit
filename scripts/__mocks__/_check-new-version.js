@@ -1,5 +1,5 @@
 /**
- * __mocks__/_checkNewVersion.js
+ * __mocks__/_check-new-version.js
  * Mock returning a valid version
  */
 'use strict';

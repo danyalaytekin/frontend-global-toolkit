@@ -1,5 +1,5 @@
 /**
- * _npmRegistryRequest.js
+ * _npm-registry-request.js
  * Promise wrapper for getting data from NPM registry
  */
 'use strict';

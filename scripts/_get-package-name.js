@@ -1,5 +1,5 @@
 /**
- * _getPackageName.js
+ * _get-package-name.js
  * Get the name of the package from the folder path
  */
 'use strict';

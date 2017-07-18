@@ -1,5 +1,5 @@
 /**
- * __mocks__/_getLatestVersion.js
+ * __mocks__/_get-latest-version.js
  * Mock the Latest version
  */
 'use strict';

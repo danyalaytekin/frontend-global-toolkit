@@ -47,7 +47,7 @@ before_install:
 script:
   - 'npm run build'
 
-# Auto-publish to Gemfury
+# Auto-publish to NPM
 after_success:
   - 'if [[ $TRAVIS_PULL_REQUEST = "false" ]]; then PUBLISH_PACKAGE=true; else PUBLISH_PACKAGE=false; fi'
   - 'echo "Pull Request: $TRAVIS_PULL_REQUEST" && echo "Node: $TRAVIS_NODE_VERSION" && echo "Publish? $PUBLISH_PACKAGE"'

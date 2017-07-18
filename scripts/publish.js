@@ -5,9 +5,11 @@
 
 const path = require('path');
 const bootstrap = require('./_bootstrap');
-const getPackages = require('./_getPackages');
-const checkCurrentVersion = require('./_checkCurrentVersion');
-const showOutput = require('./_showOutput');
+const getPackages = require('./_get-packages');
+const checkCurrentVersion = require('./_check-current-version');
+const showOutput = require('./_show-output');
+const exitScript = require('./_exit-script');
+const publishToNpm = require('./_publish-to-npm');
 
 const allPackagePaths = getPackages(path.resolve(__dirname, '../packages'));
 const lastPackagePathIndex = allPackagePaths.length - 1;
@@ -18,8 +20,13 @@ function pathLoop(i) {
 		checkCurrentVersion(allPackagePaths[i])
 			.then(data => {
 				showOutput.simpleLogToConsole(data);
-				// Publish to npm
-				resolve();
+				publishToNpm({access: 'public'}, allPackagePaths[i])
+					.then(() => {
+						resolve();
+					})
+					.catch(err => {
+						exitScript.displayErr(err);
+					});
 			})
 			.catch(resolve);
 	})
@@ -29,7 +36,13 @@ function pathLoop(i) {
 // Run bootstrap then loop through packages
 bootstrap()
 	.then(() => {
-		pathLoop(0);
-	}).catch(error => {
-		showOutput.simpleLogToConsole(error);
+		if (process.env.NPM_TOKEN) {
+			pathLoop(0);
+		} else {
+			exitScript.displayErr(
+				new Error('No NPM login token found\nPlease set the NPM_TOKEN environment variable')
+			);
+		}
+	}).catch(err => {
+		exitScript.displayErr(err);
 	});

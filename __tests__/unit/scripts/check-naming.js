@@ -1,16 +1,16 @@
 /**
- * __tests__/unit/scripts/checkNaming.js
- * Test: scripts/_checkNaming.js
+ * __tests__/unit/scripts/check-naming.js
+ * Test: scripts/_check-naming.js
  */
 'use strict';
 
-jest.mock('scripts/_showOutput');
+jest.mock('scripts/_show-output');
 
 jest.mock('path/to/fec-package/package.json', () => ({
 	name: '@springernature/fec-package'
 }), {virtual: true});
 
-const checkNaming = require('scripts/_checkNaming');
+const checkNaming = require('scripts/_check-naming');
 
 describe('Check naming conventions', () => {
 	test('Package and folder names are valid', () => {

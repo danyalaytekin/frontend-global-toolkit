@@ -1,6 +1,7 @@
 {
   "name": "@springernature/fec-mq",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "css media-query pattern",
   "keywords": [
     "css",

@@ -1,13 +1,13 @@
 /**
- * _checkCurrentVersion.js
+ * _check-current-version.js
  * Update by comparing NPM version and package.json version
  */
 'use strict';
 
 const semver = require('semver');
-const getLatestVersion = require('./_getLatestVersion');
-const checkNewVersion = require('./_checkNewVersion');
-const showOutput = require('./_showOutput');
+const getLatestVersion = require('./_get-latest-version');
+const checkNewVersion = require('./_check-new-version');
+const showOutput = require('./_show-output');
 
 // Return array of objects containing output json
 function getResultsOutput(name, latest, newVersion) {

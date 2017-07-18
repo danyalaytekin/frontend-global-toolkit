@@ -1,12 +1,12 @@
 /**
- * __tests__/unit/scripts/checkCurrentVersion.js
- * Test: scripts/_checkCurrentVersion.js
+ * __tests__/unit/scripts/check-current-version.js
+ * Test: scripts/_check-current-version.js
  */
 'use strict';
 
-jest.mock('scripts/_getLatestVersion');
-jest.mock('scripts/_checkNewVersion');
-jest.mock('scripts/_showOutput');
+jest.mock('scripts/_get-latest-version');
+jest.mock('scripts/_check-new-version');
+jest.mock('scripts/_show-output');
 
 jest.mock('path/to/fec-package/package.json', () => ({
 	name: 'fec-package'
@@ -24,7 +24,7 @@ jest.mock('path/to/fec-none/package.json', () => ({
 	name: 'fec-none'
 }), {virtual: true});
 
-const checkCurrentVersion = require('scripts/_checkCurrentVersion');
+const checkCurrentVersion = require('scripts/_check-current-version');
 
 describe('Compare NPM version and package.json version', () => {
 	test('Resolve with message when newer version in package.json - 3.0.0 > 2.0.0', () => {

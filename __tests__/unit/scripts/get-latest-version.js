@@ -1,13 +1,13 @@
 /**
- * __tests__/unit/scripts/getLatestVersion.js
- * Test: scripts/_getLatestVersion.js
+ * __tests__/unit/scripts/get-latest-version.js
+ * Test: scripts/_get-latest-version.js
  */
 'use strict';
 
-jest.mock('scripts/_npmRegistryRequest');
-jest.mock('scripts/_showOutput');
+jest.mock('scripts/_npm-registry-request');
+jest.mock('scripts/_show-output');
 
-const getLatestVersion = require('scripts/_getLatestVersion');
+const getLatestVersion = require('scripts/_get-latest-version');
 
 describe('Get latest version of package published on NPM', () => {
 	test('The data is a valid version number', () => {

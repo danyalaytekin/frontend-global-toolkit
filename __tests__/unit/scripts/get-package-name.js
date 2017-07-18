@@ -1,10 +1,10 @@
 /**
- * __tests__/unit/scripts/getPackageName.js
- * Test: scripts/_getPackageName.js
+ * __tests__/unit/scripts/get-package-name.js
+ * Test: scripts/_get-package-name.js
  */
 'use strict';
 
-const getPackageName = require('scripts/_getPackageName');
+const getPackageName = require('scripts/_get-package-name');
 
 describe('Package name from it\'s path', () => {
 	test('The data is the package name', () => {

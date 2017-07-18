@@ -1,6 +1,7 @@
 {
   "name": "@springernature/fec-box",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "license": "MIT",
   "description": "css box pattern",
   "keywords": [
     "css",

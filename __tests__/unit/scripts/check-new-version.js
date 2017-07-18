@@ -1,10 +1,10 @@
 /**
- * __tests__/unit/scripts/checkNewVersion.js
- * Test: scripts/_checkNewVersion.js
+ * __tests__/unit/scripts/check-new-version.js
+ * Test: scripts/_check-new-version.js
  */
 'use strict';
 
-const checkNewVersion = require('scripts/_checkNewVersion');
+const checkNewVersion = require('scripts/_check-new-version');
 
 describe('Check for a valid semver version', () => {
 	test('Data is the version number when valid', () => {

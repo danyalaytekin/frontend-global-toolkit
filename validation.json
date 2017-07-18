@@ -4,7 +4,8 @@
   "required": [
     "README.md",
     "HISTORY.md",
-    "package.json"
+    "package.json",
+    ".npmrc"
   ],
   "ignored": [
     ".DS_Store",

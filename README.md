@@ -1,5 +1,6 @@
 # frontend-components
-[![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master)](https://travis-ci.com/springernature/frontend-components)
+<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=20 height=20/> [![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master&style=flat-square)](https://travis-ci.com/springernature/frontend-components)
+[![LGPL-3.0 licensed](https://img.shields.io/badge/license-LGPL%203.0-blue.svg)][info-license]
 
 Core front-end components for use on all Springer Nature products. Components can contain one or more of `css`, `javascript`, `templates`, `images`. Each component should have its own folder in `./packages`. Components are published to NPM using the `@springernature` scope.
 
@@ -23,14 +24,15 @@ frontend-components
         └── **/*.{html,dust,md}
       └── img
         └── **/*.{jpg,gif,png,svg,md}
-      └── README.md
+      └── .npmrc
       └── HISTORY.md
       └── package.json
+      └── README.md
 ```
 
 The files and folders detailed here are subject to the following validation rules:
 
-- `README.md`, `HISTORY.md`, `package.json` are the only files allowed at the top level, they are all _required_
+- `.npmrc`, `README.md`, `HISTORY.md`, `package.json` are the only files allowed at the top level, they are all _required_
 - The folders `scss`, `js`, `view`, `img` are the only folders that are allowed at the top level, they are _optional_
 - Within these folders you can have any number of `sub-folders`, but there are restrictions on the file types allowed
 
@@ -48,6 +50,14 @@ Packages in `frontend-components` are [scoped](https://docs.npmjs.com/misc/scope
 {
   "name": "@springernature/fec-name-of-component",
 }
+```
+
+#### `.npmrc`
+
+Your `.npmrc` file is used to publish packages via Travis CI, and **MUST** contain the following:
+
+```
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}
 ```
 
 #### SASS
@@ -90,3 +100,11 @@ Javascript linting is enforced using [XO](https://github.com/sindresorhus/xo) ac
 ### Publishing
 
 To publish a new component please follow the [contributing guidelines](CONTRIBUTING.md). Publishing to NPM is done automatically in Travis.
+
+License
+-------
+
+The frontend-components repository is licensed under the [Lesser General Public License (LGPL-3.0)][info-license]. All packages within this repository are licensed under the [Lesser General Public License (LGPL-3.0)][info-license].
+Copyright &copy; 2017, Springer Nature
+
+[info-license]: LICENSE

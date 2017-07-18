@@ -1,6 +1,6 @@
 /**
- * __tests__/unit/scripts/checkValidation.js
- * Test: scripts/_checkValidation.js
+ * __tests__/unit/scripts/check-validation.js
+ * Test: scripts/_check-validation.js
  */
 'use strict';
 
@@ -9,7 +9,7 @@ const mockfs = require('__mocks__/fs');
 
 const MOCK_PACKAGES = mockfs.__fsMockFiles();
 
-jest.mock('scripts/_showOutput');
+jest.mock('scripts/_show-output');
 
 jest.mock('validation.json', () => ({
 	required: ['required.md'],
@@ -21,13 +21,12 @@ jest.mock('validation.json', () => ({
 }));
 
 describe('Check validation', () => {
-
 	beforeEach(() => {
 		jest.resetModules();
 	});
 
 	test('Error returned from glob', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
@@ -37,7 +36,7 @@ describe('Check validation', () => {
 	});
 
 	test('Resolves when filesystem matches config', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
@@ -47,7 +46,7 @@ describe('Check validation', () => {
 	});
 
 	test('Rejects when required file missing', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
@@ -57,7 +56,7 @@ describe('Check validation', () => {
 	});
 
 	test('Rejects when invalid folder present', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
@@ -67,7 +66,7 @@ describe('Check validation', () => {
 	});
 
 	test('Rejects when invalid file type present in a valid folder', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
@@ -77,7 +76,7 @@ describe('Check validation', () => {
 	});
 
 	test('Rejects when invalid file present at top level', () => {
-		const checkValidation = require('scripts/_checkValidation');
+		const checkValidation = require('scripts/_check-validation');
 		mockfs(MOCK_PACKAGES);
 
 		expect.assertions(1);
