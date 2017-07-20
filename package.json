@@ -23,7 +23,8 @@
     "lint": "npm run lint:js",
     "lint:js": "xo **/*.js",
     "build": "npm run lint && npm run validate && npm test",
-    "publish": "node scripts/publish.js"
+    "publish": "node scripts/publish.js",
+    "create": "node scripts/create-package.js"
   },
   "bugs": {
     "url": "https://github.com/springernature/frontend-components/issues"
@@ -32,15 +33,21 @@
   "devDependencies": {
     "chalk": "^1.1.3",
     "glob": "^7.1.2",
+    "inquirer": "^3.2.0",
     "jest": "^20.0.4",
     "lerna": "^2.0.0-rc.4",
+    "listr": "^0.12.0",
     "mock-fs": "^4.3.0",
     "mock-spawn": "^0.2.6",
     "npm-registry-client": "^8.3.0",
     "npm-utils": "^1.14.1",
     "pmock": "^0.2.3",
     "q": "^1.5.0",
+    "rewire": "^2.5.2",
+    "sanitize-filename": "^1.6.1",
     "semver": "^5.3.0",
+    "strip-ansi": "^4.0.0",
+    "validate-npm-package-name": "^3.0.0",
     "xo": "^0.18.2"
   },
   "jest": {

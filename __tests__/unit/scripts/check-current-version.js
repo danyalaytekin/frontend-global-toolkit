@@ -4,6 +4,8 @@
  */
 'use strict';
 
+const stripAnsi = require('strip-ansi');
+
 jest.mock('scripts/_get-latest-version');
 jest.mock('scripts/_check-new-version');
 jest.mock('scripts/_show-output');
@@ -30,7 +32,7 @@ describe('Compare NPM version and package.json version', () => {
 	test('Resolve with message when newer version in package.json - 3.0.0 > 2.0.0', () => {
 		expect.assertions(1);
 		return checkCurrentVersion('path/to/fec-package').then(data => {
-			expect(data).toBe('\u001b[37m\u001b[32minfo\u001b[37m \u001b[35mupdate package\u001b[37m true\u001b[39m');
+			expect(stripAnsi(data)).toBe('info update package true');
 		});
 	});
 

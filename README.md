@@ -1,6 +1,7 @@
 # frontend-components
 <img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=20 height=20/> [![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master&style=flat-square)](https://travis-ci.com/springernature/frontend-components)
 [![LGPL-3.0 licensed](https://img.shields.io/badge/license-LGPL%203.0-blue.svg)][info-license]
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 Core front-end components for use on all Springer Nature products. Components can contain one or more of `css`, `javascript`, `templates`, `images`. Each component should have its own folder in `./packages`. Components are published to NPM using the `@springernature` scope.
 
@@ -9,6 +10,10 @@ Core front-end components for use on all Springer Nature products. Components ca
 All components are validated on our CI server (Travis) to ensure they conform to certain naming conventions, file/folder structure, and that certain required files are present. The validation is configurable in the [`validation.json`](validation.json) file. The current configuration is described below.
 
 You can test if your component validates by running `npm run validate` from within the project on the command line.
+
+**You can auto-generate a new component with the correct configuration by running `npm run create` from within the project on the command line. This will generate a folder in the `packages` directory with the correct files and folders.**
+
+![auto-generate video](auto-generate.gif "Video of the auto-generate script")
 
 ### Component structure
 
