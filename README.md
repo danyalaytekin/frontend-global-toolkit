@@ -1,6 +1,7 @@
 # frontend-components
-<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=20 height=20/> [![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master&style=flat-square)](https://travis-ci.com/springernature/frontend-components)
-[![LGPL-3.0 licensed](https://img.shields.io/badge/license-LGPL%203.0-blue.svg)][info-license]
+
+<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=20 height=20/> [![Build Status](https://travis-ci.com/springernature/frontend-components.svg?token=zyctw5kYdmyz8scswTTY&branch=master)](https://travis-ci.com/springernature/frontend-components)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)][info-license]
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 Core front-end components for use on all Springer Nature products. Components can contain one or more of `css`, `javascript`, `templates`, `images`. Each component should have its own folder in `./packages`. Components are published to NPM using the `@springernature` scope.
@@ -109,7 +110,8 @@ To publish a new component please follow the [contributing guidelines](CONTRIBUT
 License
 -------
 
-The frontend-components repository is licensed under the [Lesser General Public License (LGPL-3.0)][info-license]. All packages within this repository are licensed under the [Lesser General Public License (LGPL-3.0)][info-license].
+The frontend-components repository is licensed under the [MIT License][info-license].  
+All packages within this repository are licensed under the [MIT License][info-license].  
 Copyright &copy; 2017, Springer Nature
 
-[info-license]: LICENSE
+[info-license]: LICENCE
