@@ -17,17 +17,35 @@ const checkLicense = require('./_check-license');
 const exitScript = require('./_exit-script');
 
 const allPackagePaths = getPackages(path.resolve(__dirname, '../packages'));
-const lastPackagePathIndex = allPackagePaths.length - 1;
 const globalLicense = getLicense('../package.json');
+const lastArgument = process.argv[process.argv.length - 1];
+const filteredPaths = filterPackagePathList(lastArgument);
+const lastPackagePathIndex = filteredPaths.length - 1;
 
-// Loop through all packages
-(function pathLoop(i) {
+if (filteredPaths.length === 0) {
+	exitScript.throwErr(
+		(lastArgument.startsWith(config.prefix)) ?
+			`Package \`${lastArgument}\` could not be found` :
+			'No packages found to validate'
+	);
+}
+
+function filterPackagePathList(lastArgument) {
+	if (lastArgument.startsWith(config.prefix)) {
+		return allPackagePaths.filter(path => {
+			return path.endsWith(lastArgument);
+		});
+	}
+	return allPackagePaths;
+}
+
+function allPackagePathLoop(i) {
 	new Promise(resolve => {
-		checkNaming(config.scope, config.prefix, allPackagePaths[i])
+		checkNaming(config.scope, config.prefix, filteredPaths[i])
 			.then(() => {
-				checkLicense(allPackagePaths[i], globalLicense)
+				checkLicense(filteredPaths[i], globalLicense)
 					.then(() => {
-						checkValidation(allPackagePaths[i], {dot: true})
+						checkValidation(filteredPaths[i], {dot: true})
 							.then(resolve)
 							.catch(err => {
 								exitScript.displayErr(err);
@@ -38,5 +56,7 @@ const globalLicense = getLicense('../package.json');
 			}).catch(err => {
 				exitScript.displayErr(err);
 			});
-	}).then(() => i >= lastPackagePathIndex || pathLoop(i + 1));
-})(0);
+	}).then(() => i >= lastPackagePathIndex || allPackagePathLoop(i + 1));
+}
+
+allPackagePathLoop(0);

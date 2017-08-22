@@ -10,7 +10,7 @@ Core front-end components for use on all Springer Nature products. Components ca
 
 All components are validated on our CI server (Travis) to ensure they conform to certain naming conventions, file/folder structure, and that certain required files are present. The validation is configurable in the [`validation.json`](validation.json) file. The current configuration is described below.
 
-You can test if your component validates by running `npm run validate` from within the project on the command line.
+You can validate all the components by running `npm run validate` from within the project on the command line, or test only your component by running `npm run validate fec-name-of-component`.
 
 **You can auto-generate a new component with the correct configuration by running `npm run create` from within the project on the command line. This will generate a folder in the `packages` directory with the correct files and folders.**
 
