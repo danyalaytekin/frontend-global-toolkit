@@ -40,7 +40,7 @@
     "mock-fs": "^4.3.0",
     "mock-spawn": "^0.2.6",
     "npm-registry-client": "^8.3.0",
-    "npm-utils": "^1.14.1",
+    "npm-utils": "^2.0.0",
     "pmock": "^0.2.3",
     "q": "^1.5.0",
     "rewire": "^2.5.2",
