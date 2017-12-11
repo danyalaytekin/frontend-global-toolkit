@@ -1,15 +1,15 @@
 /**
- * @springernature/fec-box
+ * @springernature/global-box
  * A container with 4 sides
  *
  */
 
 .p-box {
-    @include fec-box;
+    @include global-box;
 
     // Circular box
     // A container with no corners
     &--circle {
-        @include fec-box--circle;
+        @include global-box--circle;
     }
 }

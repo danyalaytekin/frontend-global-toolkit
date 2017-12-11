@@ -19,7 +19,7 @@ describe('Query Packages directory', () => {
 	test('An array of package paths is returned', () => {
 		const fileSummary = getPackages('path/to');
 		const dir = path.resolve(__dirname, '../../..');
-		const expected = [`${dir}/path/to/fec-package`, `${dir}/path/to/fec-package-b`];
+		const expected = [`${dir}/path/to/global-package`, `${dir}/path/to/global-package-b`];
 		expect.assertions(2);
 		expect(fileSummary.length).toBe(2);
 		expect(fileSummary).toEqual(expect.arrayContaining(expected));

@@ -6,7 +6,7 @@
 /// @link https://github.com/at-import/breakpoint/blob/2.x.x/stylesheets/_breakpoint.scss
 /// @group 30-mixins
 /// @content Wrap CSS with this mixin
-@mixin fec-mq($query, $no-query: false) {
+@mixin global-mq($query, $no-query: false) {
   @include breakpoint($query, $no-query) {
     @content;
   }

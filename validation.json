@@ -1,6 +1,6 @@
 {
   "scope": "springernature",
-  "prefix": "fec",
+  "prefix": "global",
   "required": [
     "README.md",
     "HISTORY.md",

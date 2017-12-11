@@ -1,12 +1,12 @@
 /**
- * @springernature/fec-box
+ * @springernature/global-box
  * Standard box
  *
  */
-@mixin fec-box (
-    $padding: $fec-box--padding,
-    $border: $fec-box--border-color,
-    $background: $fec-box--background-color
+@mixin global-box (
+    $padding: $global-box--padding,
+    $border: $global-box--border-color,
+    $background: $global-box--background-color
 ) {
     border: 1px solid #{$border};
     padding: #{$padding};
@@ -14,12 +14,12 @@
 }
 
 /**
- * @springernature/fec-box
+ * @springernature/global-box
  * Circular box
  *
  */
-@mixin fec-box--circle (
-    $diameter: $fec-box--circle-diameter
+@mixin global-box--circle (
+    $diameter: $global-box--circle-diameter
 ) {
     padding: 0;
     border-radius: 50%;

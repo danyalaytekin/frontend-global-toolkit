@@ -6,8 +6,8 @@
 
 function getPackages() {
 	return [
-		'path/to/fec-package-a',
-		'path/to/fec-package-b'
+		'path/to/global-package-a',
+		'path/to/global-package-b'
 	];
 }
 

@@ -31,7 +31,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'error')
+			checkValidation('path/to/global-package', 'error')
 		).rejects.toBeInstanceOf(Error);
 	});
 
@@ -41,7 +41,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'pass')
+			checkValidation('path/to/global-package', 'pass')
 		).resolves.toEqual();
 	});
 
@@ -51,7 +51,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'failIsRequired')
+			checkValidation('path/to/global-package', 'failIsRequired')
 		).rejects.toBeInstanceOf(Error);
 	});
 
@@ -61,7 +61,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'failIsFolder')
+			checkValidation('path/to/global-package', 'failIsFolder')
 		).rejects.toBeInstanceOf(Error);
 	});
 
@@ -71,7 +71,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'failIsFileType')
+			checkValidation('path/to/global-package', 'failIsFileType')
 		).rejects.toBeInstanceOf(Error);
 	});
 
@@ -81,7 +81,7 @@ describe('Check validation', () => {
 
 		expect.assertions(1);
 		return expect(
-			checkValidation('path/to/fec-package', 'failIsTopLevelFile')
+			checkValidation('path/to/global-package', 'failIsTopLevelFile')
 		).rejects.toBeInstanceOf(Error);
 	});
 

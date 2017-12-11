@@ -5,10 +5,10 @@
 'use strict';
 
 const result = {
-	'fec-package': '3.0.0',
-	'fec-match': '2.0.0',
-	'fec-older': '1.0.0',
-	'fec-none': '0.0.0'
+	'global-package': '3.0.0',
+	'global-match': '2.0.0',
+	'global-older': '1.0.0',
+	'global-none': '0.0.0'
 };
 
 const checkNewVersion = pkg => result[pkg.name];

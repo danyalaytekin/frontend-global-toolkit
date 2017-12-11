@@ -17,14 +17,14 @@ Simple box pattern. Import each `scss` file into the respective level in your ap
 ### Standard using @mixin
 ```scss
 .class-name {
-    @include fec-box;
+    @include global-box;
 }
 ```
 
 ### Circle using @mixin
 ```scss
 .class-name {
-    @include fec-box;
-    @include fec-box--circle;
+    @include global-box;
+    @include global-box--circle;
 }
 ```

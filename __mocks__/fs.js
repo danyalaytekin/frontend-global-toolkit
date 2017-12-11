@@ -8,7 +8,7 @@ const fs = require('mock-fs');
 
 const __fsMockFiles = () => {
 	return {
-		'path/to/fec-package': {
+		'path/to/global-package': {
 			'required.md': 'file content',
 			'fail.md': 'file content',
 			ignored: {
@@ -30,7 +30,7 @@ const __fsMockFiles = () => {
 				'file.md': 'file content'
 			}
 		},
-		'path/to/fec-package-b': {
+		'path/to/global-package-b': {
 			'some-file.txt': 'file content here',
 			'empty-dir': {/** empty directory */}
 		},
