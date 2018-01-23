@@ -1,11 +1,11 @@
 {
-  "name": "frontend-components",
+  "name": "frontend-global-toolkit",
   "description": "monorepo for shared frontend components - css, javascript, templates, images",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/springernature/frontend-components.git"
+    "url": "git+https://github.com/springernature/frontend-global-toolkit.git"
   },
   "keywords": [
     "frontend",
@@ -19,41 +19,26 @@
   "scripts": {
     "test": "jest --colors --verbose --coverage",
     "testfile": "jest --colors --verbose",
-    "validate": "node scripts/validate.js",
     "lint": "npm run lint:js",
     "lint:js": "xo **/*.js",
-    "build": "npm run lint && npm run validate && npm test",
-    "publish": "node scripts/publish.js",
-    "create": "node scripts/create-package.js"
+    "validate": "./node_modules/.bin/sn-package-validate",
+    "publish": "./node_modules/.bin/sn-package-publish",
+    "create": "./node_modules/.bin/sn-package-create",
+    "build": "npm run lint && npm run validate && npm test"
   },
   "bugs": {
-    "url": "https://github.com/springernature/frontend-components/issues"
+    "url": "https://github.com/springernature/frontend-global-toolkit/issues"
   },
-  "homepage": "https://github.com/springernature/frontend-components#readme",
+  "homepage": "https://github.com/springernature/frontend-global-toolkit#readme",
   "devDependencies": {
-    "chalk": "^1.1.3",
-    "glob": "^7.1.2",
-    "inquirer": "^3.2.0",
-    "jest": "^20.0.4",
-    "lerna": "^2.5.1",
-    "listr": "^0.12.0",
-    "mock-fs": "^4.3.0",
-    "mock-spawn": "^0.2.6",
-    "npm-registry-client": "^8.3.0",
-    "npm-utils": "^2.0.0",
-    "pmock": "^0.2.3",
-    "q": "^1.5.0",
-    "rewire": "^2.5.2",
-    "sanitize-filename": "^1.6.1",
-    "semver": "^5.3.0",
-    "strip-ansi": "^4.0.0",
-    "validate-npm-package-name": "^3.0.0",
-    "xo": "^0.18.2"
+    "xo": "^0.18.2",
+    "@springernature/global-package-manager": "^1.0.0"
   },
   "jest": {
     "modulePaths": [
       "<rootDir>/"
-    ]
+    ],
+    "testRegex": "__tests__/.*\\.js$"
   },
   "xo": {
     "rules": {},
@@ -62,7 +47,11 @@
       "node"
     ],
     "ignores": [
-      "__tests__/**/*.js"
+      "**/__tests__/**"
     ]
+  },
+  "packageManager": {
+    "validationPath": "./validation.json",
+    "packagesDirectory": "./packages"
   }
 }

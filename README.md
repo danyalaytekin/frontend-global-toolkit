@@ -6,7 +6,7 @@
 
 > Shared front-end packages published via NPM
 
-The global toolkit contains front-end packages that can be used on all Springer Nature products. Packages can contain one or more of `css`, `javascript`, `templates`, `images`. Each package should have its own folder in `./packages`, which result in it being published to NPM using the `@springernature` scope.
+The global toolkit contains front-end packages that can be used on all Springer Nature products. Packages can contain one or more of `css`, `javascript`, `templates`, `images`, `tests`. Each package should have its own folder in `./packages`, which result in it being published to NPM using the `@springernature` scope.
 
 ### Writing a package
 
@@ -32,6 +32,8 @@ frontend-global-toolkit
         └── **/*.{html,dust,md}
       └── img
         └── **/*.{jpg,gif,png,svg,md}
+      └── __tests__
+        └── **/*.{js,json}
       └── .npmrc
       └── HISTORY.md
       └── package.json
@@ -97,7 +99,7 @@ When writing Javascript you should follow the guidelines in the [Springer Nature
 
 ### Testing
 
-Tests for your package should _not_ be written in your `packages/global-name-of-package` folder, but in a `global-name-of-package` folder within the top-level `__tests__` folder. For example, unit tests for `global-name-of-package` should live in `__tests__/unit/global-name-of-package/*.js`.
+Tests for your package should be written in your `packages/global-name-of-package/__tests_` folder. For example, unit tests for `global-name-of-package` should live in `packages/global-name-of-package/__tests__/unit/*.js`.
 
 To run all the tests use `npm test` from within the project on the command line. The run an individual test use `npm run testfile -- name-of-test-file`.
 

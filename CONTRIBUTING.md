@@ -1,4 +1,4 @@
-# Contributing to frontend-components
+# Contributing to frontend-global-toolkit
 
 When contributing to an existing component, or building a new one, work should:
 

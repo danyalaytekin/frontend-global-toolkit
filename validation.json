@@ -9,7 +9,8 @@
   ],
   "ignored": [
     ".DS_Store",
-    "node_modules"
+    "node_modules",
+    "npm-debug.log"
   ],
   "folders": {
     "scss": [
@@ -34,6 +35,10 @@
       "png",
       "svg",
       "md"
+    ],
+    "__tests__": [
+      "js",
+      "json"
     ]
   }
 }
