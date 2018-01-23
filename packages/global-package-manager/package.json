@@ -8,7 +8,7 @@
     "cli"
   ],
   "author": "Alex Kilgour",
-  "dependencies": {
+  "devDependencies": {
     "chalk": "^1.1.3",
     "glob": "^7.1.2",
     "inquirer": "^3.2.0",

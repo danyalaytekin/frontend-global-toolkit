@@ -38,3 +38,13 @@ To publish a new version of a component, or to publish a new component:
 5. (Make sure you only publish one component at a time)
 6. Push the commit to origin using `git push`
 7. The build system will automatically publish your new version based on the `package.json` version
+
+### Vulnerability detection
+
+After publication of a new package, it needs to be added to Snyk so that the dependencies can be tracked. To add a new package to Snyk:
+
+1. Make sure that you are authorised via your GutHub account
+2. Log into Snyk and switch to the `springernature` organisation
+3. Switch to the `Projects` tab and search for `frontend-global-toolkit`
+4. Click the + icon to add your new package
+5. Add the target path to the `package.json` file e.g. `packages/my-package/package.json`
