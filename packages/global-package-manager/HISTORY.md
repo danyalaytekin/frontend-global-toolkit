@@ -1,5 +1,8 @@
 # History
 
+## 1.0.1 (2018-01-24)
+    * Bug fix: Move `dependencies` to `devDependencies`
+
 ## 1.0.0 (2018-01-22)
     * First release
     * Add documentation
