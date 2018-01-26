@@ -1,5 +1,8 @@
 # History
 
+## 1.1.0 (2018-01-26)
+    * Fail builds when HISTORY.md not updated for new package version
+
 ## 1.0.1 (2018-01-24)
     * Bug fix: Move `dependencies` to `devDependencies`
 
