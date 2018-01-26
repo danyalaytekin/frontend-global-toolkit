@@ -31,17 +31,18 @@ All components are versioned individually using [semver](http://semver.org/). Yo
 
 To publish a new version of a component, or to publish a new component:
 
-1. Switch to the `master` branch, version commits are the only commits that shouldn't be in a pull-request
+1. Version commits can be managed in their own PR or as part of your package update PR
 2. Increment either the major, minor, or patch version in the relevant `package.json`. If you're unsure which, have a chat about it or re-read the semver docs
-3. Add an entry to the relevant `HISTORY.md` file outlining the changes in the new version. Take your time, this log should be useful to developers – it should help them make decisions about whether they can upgrade
-4. Commit your changes with a message formatted as `name-of-component version 1.2.3` – this helps people find version commits in the log
-5. (Make sure you only publish one component at a time)
-6. Push the commit to origin using `git push`
+3. Add an entry to the relevant `HISTORY.md` file outlining the changes in the new version. Take your time, this log should be useful to developers – it should help them make decisions about whether they can upgrade. If this file is not updated then travis will fail the build.
+4. (Make sure you only publish one component at a time)
+6. Code review your pull request and merge
 7. The build system will automatically publish your new version based on the `package.json` version
 
 ### Vulnerability detection
 
-After publication of a new package, it needs to be added to Snyk so that the dependencies can be tracked. To add a new package to Snyk:
+After publication of a new package, it needs to be added to Snyk so that the dependencies can be tracked. More information on Snyk can be found in the [front-end playbook](https://github.com/springernature/frontend-playbook/blob/master/practices/managing-node-projects.md#dependency-management-tools)
+
+To add a new package to Snyk:
 
 1. Make sure that you are authorised via your GutHub account
 2. Log into Snyk and switch to the `springernature` organisation

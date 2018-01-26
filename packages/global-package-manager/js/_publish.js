@@ -6,6 +6,7 @@
 const bootstrap = require('./_bootstrap');
 const getPackages = require('./_get-packages');
 const checkCurrentVersion = require('./_check-current-version');
+const checkHistory = require('./_check-history');
 const showOutput = require('./_show-output');
 const exitScript = require('./_exit-script');
 const publishToNpm = require('./_publish-to-npm');
@@ -19,11 +20,16 @@ function pathLoop(i) {
 		checkCurrentVersion(allPackagePaths[i])
 			.then(data => {
 				showOutput.simpleLogToConsole(data);
-				publishToNpm({access: 'public'}, allPackagePaths[i])
+				checkHistory(allPackagePaths[i], process.env.CHANGED_FILES)
 					.then(() => {
-						resolve();
-					})
-					.catch(err => {
+						publishToNpm({access: 'public'}, allPackagePaths[i])
+							.then(() => {
+								resolve();
+							})
+							.catch(err => {
+								exitScript.displayErr(err);
+							});
+					}).catch(err => {
 						exitScript.displayErr(err);
 					});
 			})
