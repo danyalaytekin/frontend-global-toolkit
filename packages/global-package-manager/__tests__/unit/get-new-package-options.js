@@ -10,7 +10,7 @@ const tasks = rewire(path.resolve(__dirname, '../../js/_get-new-package-options'
 
 // Test for a valid package name
 describe('Check for valid package names', () => {
-	test('valid package name with prefix', () => {
+	test('valid package name & prefix', () => {
 		const prefixName = tasks.__get__('prefixName');
 
 		expect.assertions(1);
@@ -19,7 +19,7 @@ describe('Check for valid package names', () => {
 		).toBe('test-package');
 	});
 
-	test('valid sanitized package name with prefix', () => {
+	test('valid sanitized package name & prefix', () => {
 		const prefixName = tasks.__get__('prefixName');
 
 		expect.assertions(1);
@@ -28,13 +28,40 @@ describe('Check for valid package names', () => {
 		).toBe('test-package');
 	});
 
-	test('invalid with empty name', () => {
+	test('valid package name & no prefix', () => {
+		const prefixName = tasks.__get__('prefixName');
+
+		expect.assertions(1);
+		return expect(
+			prefixName({}, 'package')
+		).toBe('package');
+	});
+
+	test('valid sanitized package name & no prefix', () => {
+		const prefixName = tasks.__get__('prefixName');
+
+		expect.assertions(1);
+		return expect(
+			prefixName({}, '<package>')
+		).toBe('package');
+	});
+
+	test('invalid with empty name & prefix', () => {
 		const checkValidName = tasks.__get__('checkValidName');
 
 		expect.assertions(1);
 		return expect(
 			checkValidName({prefix: 'test'}, ['test-package-a', 'test-package-b'], 'test-')
-		).toBe('Component `test-` is invalid');
+		).toBe('Component is invalid: name is blank');
+	});
+
+	test('invalid with empty name & no prefix', () => {
+		const checkValidName = tasks.__get__('checkValidName');
+
+		expect.assertions(1);
+		return expect(
+			checkValidName({}, ['test-package-a', 'test-package-b'], '')
+		).toBe('Component is invalid: name is blank');
 	});
 
 	test('invalid if name is the same as the prefix', () => {
@@ -43,7 +70,7 @@ describe('Check for valid package names', () => {
 		expect.assertions(1);
 		return expect(
 			checkValidName({prefix: 'test'}, ['test-package-a', 'test-package-b'], 'test-test')
-		).toBe('Component `test-test` is invalid');
+		).toBe('Component `test-test` is invalid. Must not contain the prefix name');
 	});
 
 	test('invalid if name starts with the prefix', () => {
@@ -52,7 +79,7 @@ describe('Check for valid package names', () => {
 		expect.assertions(1);
 		return expect(
 			checkValidName({prefix: 'test'}, ['test-package-a', 'test-package-b'], 'test-testpackage')
-		).toBe('Component `test-testpackage` is invalid');
+		).toBe('Component `test-testpackage` is invalid. Must not contain the prefix name');
 	});
 
 	test('invalid if package already exists', () => {

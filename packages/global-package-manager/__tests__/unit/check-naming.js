@@ -13,24 +13,38 @@ jest.mock('path/to/global-package/package.json', () => ({
 const checkNaming = require('../../js/_check-naming');
 
 describe('Check naming conventions', () => {
-	test('Package and folder names are valid', () => {
+	test('Package and folder names are valid (with prefix)', () => {
 		expect.assertions(1);
 		return expect(
-			checkNaming('springernature', 'global', 'path/to/global-package')
+			checkNaming('springernature', 'global', 'packages', 'path/to/global-package')
 		).resolves.toEqual();
 	});
 
-	test('Reject if Package name is not valid', () => {
+	test('Reject if Package name is not valid (with prefix)', () => {
 		expect.assertions(1);
 		return expect(
-			checkNaming('fail', 'global', 'path/to/global-package')
+			checkNaming('fail', 'global', 'packages', 'path/to/global-package')
 		).rejects.toBeInstanceOf(Error);
 	});
 
-	test('Reject if Folder name is not valid', () => {
+	test('Reject if Folder name is not valid (with prefix)', () => {
 		expect.assertions(1);
 		return expect(
-			checkNaming('springernature', 'fail', 'path/to/global-package')
+			checkNaming('springernature', 'fail', 'packages', 'path/to/global-package')
+		).rejects.toBeInstanceOf(Error);
+	});
+
+	test('Package and folder names are valid (without prefix)', () => {
+		expect.assertions(1);
+		return expect(
+			checkNaming('springernature', null, 'packages', 'path/to/global-package')
+		).resolves.toEqual();
+	});
+
+	test('Reject if Package name is not valid (without prefix)', () => {
+		expect.assertions(1);
+		return expect(
+			checkNaming('fail', null, 'packages', 'path/to/global-package')
 		).rejects.toBeInstanceOf(Error);
 	});
 });

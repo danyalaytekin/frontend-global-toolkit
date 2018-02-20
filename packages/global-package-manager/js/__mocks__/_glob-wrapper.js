@@ -7,8 +7,6 @@
 const results = {
 	pass: [
 		'path/to/global-package/required.md',
-		'path/to/global-package/ignored',
-		'path/to/global-package/ignored/ignoredfile.js',
 		'path/to/global-package/folder1',
 		'path/to/global-package/folder1/file.scss',
 		'path/to/global-package/folder1/file.css',
@@ -19,8 +17,6 @@ const results = {
 		'path/to/global-package/folder2/subfolder/file.js'
 	],
 	failIsRequired: [
-		'path/to/global-package/ignored',
-		'path/to/global-package/ignored/ignoredfile.js',
 		'path/to/global-package/folder1',
 		'path/to/global-package/folder1/file.scss',
 		'path/to/global-package/folder1/file.css',
@@ -32,8 +28,6 @@ const results = {
 	],
 	failIsFolder: [
 		'path/to/global-package/required.md',
-		'path/to/global-package/ignored',
-		'path/to/global-package/ignored/ignoredfile.js',
 		'path/to/global-package/folderfail',
 		'path/to/global-package/folderfail/file.md',
 		'path/to/global-package/folder2',
@@ -44,8 +38,6 @@ const results = {
 	],
 	failIsFileType: [
 		'path/to/global-package/required.md',
-		'path/to/global-package/ignored',
-		'path/to/global-package/ignored/ignoredfile.js',
 		'path/to/global-package/folder1',
 		'path/to/global-package/folder1/file.scss',
 		'path/to/global-package/folder1/file.js',
@@ -58,8 +50,6 @@ const results = {
 	failIsTopLevelFile: [
 		'path/to/global-package/required.md',
 		'path/to/global-package/fail.md',
-		'path/to/global-package/ignored',
-		'path/to/global-package/ignored/ignoredfile.js',
 		'path/to/global-package/folder1',
 		'path/to/global-package/folder1/file.scss',
 		'path/to/global-package/folder1/file.css',

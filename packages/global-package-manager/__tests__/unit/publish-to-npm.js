@@ -1,6 +1,6 @@
 /**
  * __tests__/unit/publish-to-npm.js
- * Test: js/_npm-to-npm.js
+ * Test: js/_publish-to-npm.js
  */
 'use strict';
 

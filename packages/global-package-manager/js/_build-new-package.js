@@ -13,7 +13,6 @@ let filePath;
 
 /* eslint-disable no-template-curly-in-string */
 const fileDetails = {
-	'HISTORY.md': '# History',
 	'package.json': null,
 	'.npmrc': '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'
 };
@@ -33,27 +32,29 @@ function configurePackageJson(config, globalLicense, answers) {
 
 // Create folders based on answers
 function generateFolders(answers) {
-	for (const value of answers.folders) {
-		folderTasks.push({
-			title: `Create folder ${chalk.bold.white(answers.pkgname)}${chalk.bold.white('/')}${chalk.bold.white(value)}`,
-			task: () => fs.mkdir(`${filePath}/${answers.pkgname}/${value}`, err => {
-				if (err) {
-					console.error(err);
-				} else {
-					fs.writeFile(`${filePath}/${answers.pkgname}/${value}/.gitkeep`, '// temporary file, delete as appropriate', err => {
-						if (err) {
-							console.error(err);
-						}
-					});
-				}
-			})
-		});
+	if (answers.folders) {
+		for (const value of answers.folders) {
+			folderTasks.push({
+				title: `Create folder ${chalk.bold.white(answers.pkgname)}${chalk.bold.white('/')}${chalk.bold.white(value)}`,
+				task: () => fs.mkdir(`${filePath}/${answers.pkgname}/${value}`, err => {
+					if (err) {
+						console.error(err);
+					} else {
+						fs.writeFile(`${filePath}/${answers.pkgname}/${value}/.gitkeep`, '// temporary file, delete as appropriate', err => {
+							if (err) {
+								console.error(err);
+							}
+						});
+					}
+				})
+			});
+		}
 	}
 
 	return folderTasks;
 }
 
-// Create files based on validation config
+// Create files based on required config
 function generateFiles(config, answers) {
 	for (const value of config.required) {
 		if (Object.prototype.hasOwnProperty.call(fileDetails, value)) {
@@ -83,7 +84,7 @@ function generateFiles(config, answers) {
 module.exports = (config, globalLicense, packagesDirectory, answers) => {
 	filePath = packagesDirectory;
 
-	if (config.required.includes('package.json')) {
+	if (config.required && config.required.includes('package.json')) {
 		fileDetails['package.json'] = configurePackageJson(config, globalLicense, answers);
 	}
 

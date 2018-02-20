@@ -1,16 +1,16 @@
 /**
  * _get-license.js
- * Get the global licence information
+ * Get the global license information
  */
 'use strict';
 
 const exitScript = require('./_exit-script');
 
-function getLicense(path) {
-	const licenseInfo = require(path).license;
+function getLicense(json) {
+	const licenseInfo = json.license;
 
 	if (!licenseInfo) {
-		exitScript.throwErr('No licence information found in top-level package.json. This MUST be fixed before release.');
+		exitScript.throwErr('No license information found in top-level package.json. This MUST be fixed before release.');
 	}
 	return licenseInfo;
 }

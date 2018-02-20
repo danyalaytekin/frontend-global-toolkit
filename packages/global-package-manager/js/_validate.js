@@ -1,4 +1,5 @@
 /**
+ * _validate.js
  * Check all updated packages for:
  * Required files
  * Naming conventions
@@ -15,16 +16,17 @@ const checkLicense = require('./_check-license');
 const exitScript = require('./_exit-script');
 
 let config;
+let packageJson;
 let allPackagePaths;
 let globalLicense;
-let lastArgument;
+let packageName;
 let filteredPaths;
 let lastPackagePathIndex;
 
 function filterPackagePathList() {
-	if (lastArgument.startsWith(config.prefix)) {
+	if (packageName) {
 		return allPackagePaths.filter(path => {
-			return path.endsWith(lastArgument);
+			return path.endsWith(packageName);
 		});
 	}
 	return allPackagePaths;
@@ -32,7 +34,12 @@ function filterPackagePathList() {
 
 function allPackagePathLoop(i) {
 	new Promise(resolve => {
-		checkNaming(config.scope, config.prefix, filteredPaths[i])
+		checkNaming(
+			config.scope,
+			config.prefix,
+			config.packagesDirectory,
+			filteredPaths[i]
+		)
 			.then(() => {
 				checkLicense(filteredPaths[i], globalLicense)
 					.then(() => {
@@ -50,18 +57,19 @@ function allPackagePathLoop(i) {
 	}).then(() => i >= lastPackagePathIndex || allPackagePathLoop(i + 1));
 }
 
-module.exports = (validationPath, packageJsonPath, packagesDirectory) => {
-	config = require(validationPath);
-	allPackagePaths = getPackages(packagesDirectory);
-	globalLicense = getLicense(packageJsonPath);
-	lastArgument = process.argv[process.argv.length - 1];
+module.exports = (packageJsonPath, configJson, arg) => {
+	config = configJson;
+	allPackagePaths = getPackages(config.packagesDirectory);
+	packageJson = require(packageJsonPath);
+	globalLicense = getLicense(packageJson);
+	packageName = arg;
 	filteredPaths = filterPackagePathList();
 	lastPackagePathIndex = filteredPaths.length - 1;
 
 	if (filteredPaths.length === 0) {
 		exitScript.throwErr(
-			(lastArgument.startsWith(config.prefix)) ?
-				`Package \`${lastArgument}\` could not be found` :
+			(packageName) ?
+				`Package \`${packageName}\` could not be found` :
 				'No packages found to validate'
 		);
 	}

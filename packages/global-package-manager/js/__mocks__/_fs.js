@@ -11,9 +11,6 @@ const __fsMockFiles = () => {
 		'path/to/global-package': {
 			'required.md': 'file content',
 			'fail.md': 'file content',
-			ignored: {
-				'ignoredfile.js': 'file content'
-			},
 			folder1: {
 				'file.scss': 'file content',
 				'file.css': 'file content',

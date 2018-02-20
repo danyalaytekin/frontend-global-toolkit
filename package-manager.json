@@ -1,17 +1,6 @@
 {
   "scope": "springernature",
   "prefix": "global",
-  "required": [
-    "README.md",
-    "HISTORY.md",
-    "package.json",
-    ".npmrc"
-  ],
-  "ignored": [
-    ".DS_Store",
-    "node_modules",
-    "npm-debug.log"
-  ],
   "folders": {
     "scss": [
       "scss",

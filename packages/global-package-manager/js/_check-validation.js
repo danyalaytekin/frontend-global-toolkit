@@ -14,9 +14,9 @@ const showOutput = require('./_show-output');
 
 let config;
 let validFolders;
+let requiredFiles;
 let blankResults = {};
 let results = {};
-let requiredFiles = [];
 
 // Check if a glob item is a required file
 function isRequired(item) {
@@ -39,7 +39,7 @@ function isFolder(directory, item) {
 	const folder = fs.lstatSync(path.resolve(directory, item)).isDirectory();
 	if (folder) {
 		const splitGlob = item.split('/');
-		const isValid = validFolders.includes(splitGlob[0]);
+		const isValid = (validFolders) ? validFolders.includes(splitGlob[0]) : true;
 		results.folder.messaging.push({
 			type: ((isValid) ? 'success' : 'fail'),
 			description: 'validating',
@@ -63,7 +63,16 @@ function isFileType(item) {
 	if (splitGlob.length > 1) {
 		const topLevelFolder = splitGlob[0];
 		const extension = splitGlob[splitGlob.length - 1].split('.')[1];
-		if (validFolders.includes(topLevelFolder)) {
+
+		if (!validFolders) {
+			results.file.messaging.push({
+				type: 'success',
+				description: 'validating',
+				message: item + chalk.white.dim(
+					` is a valid file in ${topLevelFolder}`
+				)
+			});
+		} else if (validFolders.includes(topLevelFolder)) {
 			const isValid = config.folders[topLevelFolder].includes(extension);
 			results.file.messaging.push({
 				type: ((isValid) ? 'success' : 'fail'),
@@ -84,14 +93,10 @@ function isFileType(item) {
 }
 
 // Filter glob results
-// Remove directory string and ignored files
+// Remove directory string
 function getFilteredResults(directory, files) {
 	return files.map(s => {
 		return s.replace(`${directory}/`, '');
-	}).filter(el => {
-		return config.ignored.length === config.ignored.filter(slug => {
-			return !el.startsWith(slug) && !el.endsWith(slug);
-		}).length;
 	});
 }
 
@@ -101,6 +106,7 @@ function checkValidation(results, packagePath, options) {
 	return new Promise((resolve, reject) => {
 		glob(`${packagePath}/**/*`, options, (error, files) => {
 			const packageName = getPackageName(packagePath);
+
 			if (error) {
 				reject(new Error(`Problem globbing files/folders in ${packageName}: ${error}`));
 				return;
@@ -146,8 +152,7 @@ function checkValidation(results, packagePath, options) {
 // Initialise variables and start validation
 function init(validationConfig, packagePath, options) {
 	config = validationConfig;
-
-	validFolders = Object.keys(config.folders);
+	validFolders = (config.folders) ? Object.keys(config.folders) : undefined;
 	blankResults = {
 		required: {messaging: [], valid: true},
 		folder: {messaging: [], valid: true},

@@ -1,5 +1,14 @@
 # History
 
+## 2.0.0 (2018-02-20)
+    * Improve configuration
+    * Bug fix: checking of changed files on CI
+    * Allow custom changelog
+    * Remove ignored files config
+
+## 1.2.0 (2018-01-26)
+    * Bug fix: Move some `devDependencies` to `dependencies`
+
 ## 1.1.0 (2018-01-26)
     * Fail builds when HISTORY.md not updated for new package version
 

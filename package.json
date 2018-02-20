@@ -32,7 +32,8 @@
   "homepage": "https://github.com/springernature/frontend-global-toolkit#readme",
   "devDependencies": {
     "xo": "^0.18.2",
-    "@springernature/global-package-manager": "^1.0.0"
+    "jest": "^20.0.4",
+    "@springernature/global-package-manager": "^2.0.0"
   },
   "jest": {
     "modulePaths": [
@@ -49,9 +50,5 @@
     "ignores": [
       "**/__tests__/**"
     ]
-  },
-  "packageManager": {
-    "validationPath": "./validation.json",
-    "packagesDirectory": "./packages"
   }
 }

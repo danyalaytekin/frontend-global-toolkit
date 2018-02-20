@@ -1,14 +1,28 @@
 #! /usr/bin/env node
+'use strict';
 
 const path = require('path');
 
-const createPackage = require(path.resolve(__dirname, './_create-package'));
+const createPackage = require('./_create');
+const exitScript = require('./_exit-script');
+const exists = require('./_check-exists');
+const configGenerator = require('./_generate-config');
 
 const packageJsonPath = path.resolve(process.cwd(), 'package.json');
-const packageJson = require(packageJsonPath);
 
-createPackage(
-	path.resolve(process.cwd(), packageJson.packageManager.validationPath),
-	packageJsonPath,
-	path.resolve(process.cwd(), packageJson.packageManager.packagesDirectory)
-);
+configGenerator('package-manager.json')
+	.then(config => {
+		exists.fileExists(packageJsonPath)
+			.then(() => {
+				exists.directoryExists(path.resolve(process.cwd(), config.packagesDirectory))
+					.then(() => {
+						createPackage(packageJsonPath, config);
+					})
+					.catch(err => {
+						exitScript.displayErr(err);
+					});
+			})
+			.catch(err => {
+				exitScript.displayErr(err);
+			});
+	});

@@ -1,0 +1,10 @@
+{
+	"packagesDirectory": "./packages",
+	"changelog": "HISTORY.md",
+	"scope": "springernature",
+	"required": [
+		"README.md",
+		"package.json",
+		".npmrc"
+	]
+}

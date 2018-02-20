@@ -9,21 +9,29 @@ const validatePkgName = require('validate-npm-package-name');
 
 // Enforce the correct prefix and sanitize
 function prefixName(config, name) {
+	const prefix = (config.prefix) ? `${config.prefix}-` : '';
 	if (
-		sanitize(name).startsWith(`${config.prefix}-`)
+		sanitize(name).startsWith(prefix)
 	) {
 		return sanitize(name);
 	}
-	return `${config.prefix}-${sanitize(name)}`;
+	return `${prefix}${sanitize(name)}`;
 }
 
 // Make sure the name is valid
 function checkValidName(config, existingPackages, name) {
 	if (
-		name.length === (config.prefix.length + 1) ||
+		(config.prefix &&
+		name.length === (config.prefix.length + 1)) ||
+		(!config.prefix &&
+		name.length === 0)
+	) {
+		return `Component is invalid: name is blank`;
+	} else if (
+		config.prefix &&
 		name.startsWith(`${config.prefix}-${config.prefix}`)
 	) {
-		return `Component \`${name}\` is invalid`;
+		return `Component \`${name}\` is invalid. Must not contain the prefix name`;
 	} else if (checkPackageExists(existingPackages, name)) {
 		return `Component \`${name}\` already exists`;
 	} else if (!validatePkgName(name).validForNewPackages) {
@@ -49,30 +57,36 @@ function checkPackageExists(existingPackages, name) {
 	return existingPackages.includes(name);
 }
 
-module.exports = (config, existingPackages) => [
-	{
-		type: 'input',
-		name: 'pkgname',
-		message: 'What is the name of your new component:',
-		filter: input => prefixName(config, input),
-		validate: input => checkValidName(config, existingPackages, input)
-	},
-	{
-		type: 'input',
-		name: 'description',
-		message: 'Write a short description of your new component:'
-	},
-	{
-		type: 'input',
-		name: 'author',
-		message: 'Enter component author name:',
-		filter: input => capitalizeAuthorName(input)
-	},
-	{
-		type: 'checkbox',
-		name: 'folders',
-		message: 'Select which folders you are going to need:',
-		choices: getValidFolders(config),
-		when: getValidFolders(config).length > 0
-	}
-];
+module.exports = (config, existingPackages) => {
+	const prompts = [
+		{
+			type: 'input',
+			name: 'pkgname',
+			message: 'What is the name of your new component:',
+			filter: input => prefixName(config, input),
+			validate: input => checkValidName(config, existingPackages, input)
+		},
+		{
+			type: 'input',
+			name: 'description',
+			message: 'Write a short description of your new component:'
+		},
+		{
+			type: 'input',
+			name: 'author',
+			message: 'Enter component author name:',
+			filter: input => capitalizeAuthorName(input)
+		}
+	];
+	const folders = [
+		{
+			type: 'checkbox',
+			name: 'folders',
+			message: 'Select which folders you are going to need:',
+			choices: getValidFolders(config),
+			when: getValidFolders(config).length > 0
+		}
+	];
+
+	return (config.folders) ? prompts.concat(folders) : prompts;
+};

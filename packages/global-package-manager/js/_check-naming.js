@@ -4,6 +4,7 @@
  */
 'use strict';
 
+const path = require('path');
 const chalk = require('chalk');
 const getPackageName = require('./_get-package-name');
 const showOutput = require('./_show-output');
@@ -30,17 +31,26 @@ function getResults(folderName, packageName, validFolder, validPackage) {
 }
 
 // Return a promise based on naming validation
-function validNaming(scope, prefix, packagePath) {
+function validNaming(scope, prefix, packagesDirectory, packagePath) {
 	return new Promise((resolve, reject) => {
+		const startsWith = (prefix) ? `${prefix}-` : '';
+		const packagesFolderName = path.resolve(process.cwd(), packagesDirectory)
+			.split(path.sep)
+			.pop();
 		const folderName = getPackageName(packagePath);
-		const consoleSeparator = `packages/${folderName}`.split('').fill('-').join('');
 		const packageName = require(`${packagePath}/package.json`).name;
-		const validFolder = checkName(folderName, new RegExp(`^${prefix}-`));
-		const validPackage = checkName(packageName, new RegExp(`^@${scope}/${prefix}-`));
-		const validates = validFolder && validPackage;
+		const validFolder = checkName(folderName, new RegExp(`^${startsWith}`));
+		const validPackage = checkName(packageName, new RegExp(`^@${scope}/${startsWith}`));
 		const results = getResults(folderName, packageName, validFolder, validPackage);
+		const validates = validFolder && validPackage;
+		const consoleSeparator = `${packagesFolderName}/${folderName}`
+			.split('')
+			.fill('-')
+			.join('');
 
-		showOutput.simpleLogToConsole(`${consoleSeparator}\npackages/${folderName}\n${consoleSeparator}`);
+		showOutput.simpleLogToConsole(
+			`${consoleSeparator}\n${packagesFolderName}/${folderName}\n${consoleSeparator}`
+		);
 		showOutput.logToConsole(results);
 
 		if (validates) {

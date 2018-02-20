@@ -6,13 +6,14 @@
 const bootstrap = require('./_bootstrap');
 const getPackages = require('./_get-packages');
 const checkCurrentVersion = require('./_check-current-version');
-const checkHistory = require('./_check-history');
+const checkChangelog = require('./_check-changelog');
 const showOutput = require('./_show-output');
 const exitScript = require('./_exit-script');
 const publishToNpm = require('./_publish-to-npm');
 
 let allPackagePaths;
 let lastPackagePathIndex;
+let changelogName;
 
 // Loop through all packages
 function pathLoop(i) {
@@ -20,7 +21,7 @@ function pathLoop(i) {
 		checkCurrentVersion(allPackagePaths[i])
 			.then(data => {
 				showOutput.simpleLogToConsole(data);
-				checkHistory(allPackagePaths[i], process.env.CHANGED_FILES)
+				checkChangelog(allPackagePaths[i], process.env.CHANGED_FILES, changelogName)
 					.then(() => {
 						publishToNpm({access: 'public'}, allPackagePaths[i])
 							.then(() => {
@@ -38,9 +39,10 @@ function pathLoop(i) {
 	.then(() => i >= lastPackagePathIndex || pathLoop(i + 1));
 }
 
-module.exports = packagesDirectory => {
+module.exports = (packagesDirectory, changelog) => {
 	allPackagePaths = getPackages(packagesDirectory);
 	lastPackagePathIndex = allPackagePaths.length - 1;
+	changelogName = changelog;
 
 	// Run bootstrap then loop through packages
 	bootstrap()
