@@ -88,6 +88,10 @@ The package creation script is a CLI based tool that can be used to quickly crea
 $ ./node_modules/.bin/sn-package-create
 ```
 
+<img src="../../auto-generate.gif" width="600">
+
+> Example from Springer Nature [Front-End Global Toolkit](https://github.com/springernature/frontend-global-toolkit)
+
 ### Package validation
 
 The package validation script is a CLI based tool that will validate the packages against the configuration and provide output to the CLI. This can be run locally and as part of your CI environment.
