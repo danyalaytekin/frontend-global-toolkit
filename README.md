@@ -16,7 +16,7 @@ You can validate all the packages by running `npm run validate` from within the 
 
 **You can auto-generate a new package with the correct configuration by running `npm run create` from within the project on the command line. This will generate a folder in the `packages` directory with the correct files and folders.**
 
-![auto-generate video](auto-generate.gif "Video of the auto-generate script")
+<img src="auto-generate.gif" width="600">
 
 ### Package structure
 
