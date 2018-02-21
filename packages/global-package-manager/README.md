@@ -114,6 +114,10 @@ $ ./node_modules/.bin/sn-package-validate
  $ npm run validate -- -p global-box
  ```
 
+ <img src="img/validate.gif" width="600">
+
+> Example from Springer Nature [Front-End Global Toolkit](https://github.com/springernature/frontend-global-toolkit)
+
 ### Package publication
 
 The package validation script is a CLI based tool that will publish new or updated packages to NPM. This is designed to run on your CI environment and should not be run locally.
