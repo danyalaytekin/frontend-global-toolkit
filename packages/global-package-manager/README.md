@@ -57,7 +57,7 @@ For example all Springer Nature packages published via the [frontend-global-tool
 #### folders
 A folders object can be added to the config. This contains keys that map to any folder names that are allowed within a package, with their value being an array of allowed file extensions within that folder.
 
-If the `folders` key is present then these folders are the only ones allowedn (but are optional). The folders can contain any number of sub-folders with no restriction on naming, but the file extensions within these sub-folders must match the array.
+If the `folders` key is present then these folders are the only ones allowed (but are optional). The folders can contain any number of sub-folders with no restriction on naming, but the file extensions within these sub-folders must match the array.
 
 If the `folders` key is not present then any folders/files are allowed, with no restrictions.
 
